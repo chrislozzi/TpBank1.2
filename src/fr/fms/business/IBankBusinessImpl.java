@@ -49,7 +49,8 @@ public class IBankBusinessImpl implements IBankBusiness {
 	@Override
 	public Account consultAccount(long accountId) {		
 		Account account = accounts.get(accountId);
-		if(account == null)	System.out.println("Vous demandez un compte inexistant !");
+		if(account == null)	
+			System.out.println("Vous demandez un compte inexistant !");
 		return account;
 	}
 

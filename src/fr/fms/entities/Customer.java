@@ -16,17 +16,31 @@ public class Customer {
 	private ArrayList<Account> listAccounts;
 
 	public Customer(long customerId, String name, String firstName, String email) {
-		this.customerId = customerId;
-		this.name = name;
-		this.firstName = firstName;
-		this.email = email;
-		this.listAccounts = new ArrayList<Account>();
+		setCustomerId(customerId);
+		setName(name);
+		setFirstName(firstName);
+		setEmail(email);
+		setListAccounts(new ArrayList<Account>());
 	}
 
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", name=" + name + ", firstName=" + firstName + ", email=" + email
 				+ "]";
+	}
+
+	/**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public long getCustomerId() {
@@ -54,5 +68,11 @@ public class Customer {
 	}
 	public ArrayList<Account> getListAccounts() {
 		return listAccounts;
+	}
+	/**
+	 * @param listAccounts the listAccounts to set
+	 */
+	public void setListAccounts(ArrayList<Account> listAccounts) {
+		this.listAccounts = listAccounts;
 	}
 }

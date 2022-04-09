@@ -11,6 +11,7 @@
 package fr.fms;
 
 import java.util.Date;
+import java.util.Scanner;
 
 import fr.fms.business.IBankBusinessImpl;
 import fr.fms.entities.Account;
@@ -19,8 +20,12 @@ import fr.fms.entities.Customer;
 import fr.fms.entities.Saving;
 import fr.fms.entities.Transaction;
 
+
 public class MyBankApp {	
+		
 	public static void main(String[] args) {
+		
+		int choice = 0;
 		//représente l'activité de notre banque
 		IBankBusinessImpl bankJob = new IBankBusinessImpl();
 		
@@ -28,18 +33,14 @@ public class MyBankApp {
 		Customer robert = new Customer(1, "dupont", "robert", "robert.dupont@xmail.com");
 		Customer julie = new Customer(2, "jolie", "julie", "julie.jolie@xmail.com");		
 		Current firstAccount = new Current(100200300, new Date(), 1500, 200 , robert);
-		Saving secondAccount = new Saving(200300400, new Date(), 2000, 5.5, julie);
-		
-		
+		Saving secondAccount = new Saving(200300400, new Date(), 2000, 5.5, julie);		
 		System.out.println("Affichage des données des 2 comptes");
 		System.out.println(firstAccount);
-		System.out.println(secondAccount);		
-		
+		System.out.println(secondAccount);	
 		System.out.println("notre banquier ajoute les 2 comptes");
 		bankJob.addAccount(firstAccount);
 		bankJob.addAccount(secondAccount);
-	
-		
+				
 		//banquier ou client
 		bankJob.pay(firstAccount.getAccountId(),500);		// versement de 500 euros sur le compte de robert
 		bankJob.pay(secondAccount.getAccountId(), 1000);	// versement de 1000 euros sur le compte de julie
@@ -76,5 +77,6 @@ public class MyBankApp {
 		System.out.println("-------------------liste des transactions du compte N° 200300400 de Julie------------------------");
 		for(Transaction trans : bankJob.listTransactions(200300400))
 			System.out.println(trans);
+		
 	}
 }
